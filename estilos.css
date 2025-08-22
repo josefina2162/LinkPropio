@@ -14,14 +14,14 @@ body {
 /* Columna central */
 .container {
   position: relative;
+   min-height: 150vh; /* ocupa toda la pantalla como mínimo */
   width: 100%;
   max-width: 480px;
   padding: 20px;
   text-align: center;
 
-  min-height: 200vh; /* o la altura exacta de tu SVG */
-  background: url("img/fondo-mobile.svg") no-repeat center top;
-  background-size: 100% auto;
+   /* degradado entre dos colores */
+  background: linear-gradient(135deg, #132060, #3060AA,  #919EF4);
 }
 
 /* Botón compartir arriba a la derecha */
@@ -33,9 +33,8 @@ body {
   margin: 0;
   border: 0;
   background: transparent;
-  cursor: pointer;
 }
-.btn-share img { width: 100px; height: auto; display: block; }
+.btn-share img { width: 110px; height: auto; display: block; }
 /* feedback simple cuando se copia link */
 .btn-share.shared { outline: 2px solid currentColor; outline-offset: 4px; }
 
@@ -52,32 +51,34 @@ body {
   display: flex;
   flex-direction: column;
   gap: 18px;       /* separación entre botones */
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .link {
-  display: block;
-  text-decoration: none;
+  display: flex;
+  justify-content: center; /* centra el contenido */
 }
 
 .link picture,
 .link img {
   display: block;
+  max-width: 250px; /* 🔹 el tamaño que quieras para el botón */
   width: 100%;
   height: auto;
+  margin: 0 auto; /* asegura centrado */
 }
 
 .social-icons {
   display: flex;
   justify-content: center;  /* centra los iconos */
-  gap: 80px;                /* espacio entre cada icono */
-  margin-top: 40px;         /* separación de los botones anteriores */
+  gap: 50px;                /* espacio entre cada icono */
+  margin-top: 25px;         /* separación de los botones anteriores */
 }
 
 .social-link picture,
 .social-link img {
   display: block;
-  width: 35px;      /* tamaño base móvil */
+  width: 3opx;      /* tamaño base móvil */
   height: auto;
 }
 
