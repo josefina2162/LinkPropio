@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Proyecto</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- Botón compartir -->
+    <button class="btn-share" aria-label="Compartir esta página" title="Compartir">
+      <img src="img/btn-share.svg" alt="" />
+    </button>
+
+    <!-- Logo + nombre + descripción (UN SOLO SVG) -->
+    <!-- Opción A: un único archivo SVG que escala -->
+    <!-- <img class="marca-bio" src="img/marca-bio.svg" alt="Tu nombre y descripción" /> -->
+
+    <!-- Opción B (recomendada si exportás 2 tamaños): swap por media -->
+    <picture class="marca-bio">
+      <source srcset="img/marca-bio@lg.svg" media="(min-width: 768px)" />
+      <img src="img/marca-bio.svg" alt="Tu nombre y descripción" />
+    </picture>
+
+<!-- Bloque de botones -->
+  <nav class="links">
+    <a href="https://behance.net" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn1@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn1.svg" alt="Behance" />
+      </picture>
+    </a>
+
+    <a href="https://linkedin.com" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn2@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn2.svg" alt="LinkedIn" />
+      </picture>
+    </a>
+
+    <a href="https://wa.me/54911XXXXXXX" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn3@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn3.svg" alt="WhatsApp" />
+      </picture>
+    </a>
+
+    <a href="https://wa.me/54911XXXXXXX" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn4@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn4.svg" alt="WhatsApp" />
+      </picture>
+    </a>
+
+    <a href="https://wa.me/54911XXXXXXX" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn5@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn5.svg" alt="WhatsApp" />
+      </picture>
+    </a>
+
+    <a href="https://wa.me/54911XXXXXXX" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn6@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn6.svg" alt="WhatsApp" />
+      </picture>
+    </a>
+
+    <a href="https://wa.me/54911XXXXXXX" target="_blank" rel="noopener" class="link">
+      <picture>
+        <source srcset="img/btn7@lg.svg" media="(min-width: 768px)" />
+        <img src="img/btn7.svg" alt="WhatsApp" />
+      </picture>
+    </a>
+
+<!-- Bloque de iconos sociales -->
+<div class="social-icons">
+  <a href="https://wa.me/54911XXXXXXX" target="_blank" rel="noopener" class="social-link">
+    <picture>
+      <source srcset="img/whatsapp@lg.svg" media="(min-width: 768px)">
+      <img src="img/whatsapp.svg" alt="WhatsApp">
+    </picture>
+  </a>
+  
+  <a href="mailto:tuemail@gmail.com" target="_blank" rel="noopener" class="social-link">
+    <picture>
+      <source srcset="img/gmail@lg.svg" media="(min-width: 768px)">
+      <img src="img/gmail.svg" alt="Gmail">
+    </picture>
+  </a>
+  
+  <a href="https://instagram.com/tuusuario" target="_blank" rel="noopener" class="social-link">
+    <picture>
+      <source srcset="img/instagram@lg.svg" media="(min-width: 768px)">
+      <img src="img/instagram.svg" alt="Instagram">
+    </picture>
+  </a>
+</div>
+  </main>
+
+  <script>
+    // Compartir nativo + fallback copiar link
+    (function () {
+      const btn = document.querySelector('.btn-share');
+      const shareData = {
+        title: document.title,
+        text: 'Mirá mis links y portfolio',
+        url: location.href
+      };
+
+      btn.addEventListener('click', async () => {
+        if (navigator.share) {
+          try { await navigator.share(shareData); } catch (_) {}
+        } else {
+          try {
+            await navigator.clipboard.writeText(location.href);
+            btn.classList.add('shared');
+            setTimeout(() => btn.classList.remove('shared'), 1800);
+          } catch (_) {
+            alert('Copiá este enlace: ' + location.href);
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

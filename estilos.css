@@ -1,0 +1,106 @@
+/* Reset mínimo */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; display: flex; justify-content: center; background: #fff; font-family: system-ui, sans-serif; }
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: #fff; /* laterales siempre blancos */
+  font-family: system-ui, sans-serif;
+}
+
+/* Columna central */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  text-align: center;
+
+  min-height: 200vh; /* o la altura exacta de tu SVG */
+  background: url("img/fondo-mobile.svg") no-repeat center top;
+  background-size: 100% auto;
+}
+
+/* Botón compartir arriba a la derecha */
+.btn-share {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-share img { width: 100px; height: auto; display: block; }
+/* feedback simple cuando se copia link */
+.btn-share.shared { outline: 2px solid currentColor; outline-offset: 4px; }
+
+/* Bloque SVG combinado (logo + nombre + descripción) */
+.marca-bio {
+  display: block;
+  margin: 56px auto 0;      /* separa del top */
+  max-width: 360px;         /* tamaño base en móviles */
+  width: 100%;
+}
+.marca-bio img { width: 100%; height: auto; display: block; }
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;       /* separación entre botones */
+  margin-top: 40px;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+}
+
+.link picture,
+.link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;  /* centra los iconos */
+  gap: 80px;                /* espacio entre cada icono */
+  margin-top: 40px;         /* separación de los botones anteriores */
+}
+
+.social-link picture,
+.social-link img {
+  display: block;
+  width: 35px;      /* tamaño base móvil */
+  height: auto;
+}
+
+/* Escalado por media queries (solo tamaños, no cambia la estructura) */
+@media (min-width: 480px) {
+  .btn-share img { width: 32px; }
+  .marca-bio { max-width: 420px; }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 520px;
+    background: url("img/fondo-desktop.svg") no-repeat center top / cover;
+  }
+  .btn-share img { width: 36px; }
+  .marca-bio { max-width: 460px; }
+
+  .social-link picture,
+  .social-link img {
+    width: 60px;
+  }
+}
+
+/* Respeta preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
